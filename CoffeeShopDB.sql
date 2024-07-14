@@ -3,36 +3,33 @@ create database CoffeeShopDB
 
 create table ManagerTable
 (
-Id_Man int not null,
-Username varchar(225),
-Passwords varchar(225)
-
-Primary key (Id_Man)
+  Id_Man int not null,
+  Username varchar(225),
+  Passwords varchar(225)
+  Primary key (Id_Man)
 );
 
 create table SalesTable
 (
-Id_Sale int not null,
-Quantity int,
-Descriptions varchar(225),
-Price decimal (4,2),
-Total decimal (6,2),
-Dates varchar(225)
-
-Primary key (Id_Sale)
+  Id_Sale int not null,
+  Quantity int,
+  Descriptions varchar(225),
+  Price decimal (4,2),
+  Total decimal (6,2),
+  Dates varchar(225)
+  Primary key (Id_Sale)
 );
 
 create table CoffeePriceTable
 (
-Id_Coffee int not null,
-Coffee_Type varchar(225),
-Small_Price decimal (4,2),
-Medium_Price decimal (4,2),
-Large_Price decimal (4,2),
-Id_Sale int not null
-
-Primary key (Id_Coffee)
-Foreign key (ID_Sale) references SalesTable
+  Id_Coffee int not null,
+  Coffee_Type varchar(225),
+  Small_Price decimal (4,2),
+  Medium_Price decimal (4,2),
+  Large_Price decimal (4,2),
+  Id_Sale int not null
+  Primary key (Id_Coffee)
+  Foreign key (ID_Sale) references SalesTable
 );
 
 insert into ManagerTable(Id_Man,Username,Passwords)
