@@ -1,6 +1,7 @@
+--Create database
 create database CoffeeShopDB
 
-
+--Create Tables
 create table ManagerTable
 (
   Id_Man int not null,
@@ -32,6 +33,7 @@ create table CoffeePriceTable
   Foreign key (ID_Sale) references SalesTable
 );
 
+--Insert Data
 insert into ManagerTable(Id_Man,Username,Passwords)
 values(1,'Isaacl@CTU','Ctu@2022'),
 (2,'LeratoP@CTU', 'Ctu#'),
@@ -51,6 +53,7 @@ values(1,'Americano', 19.00, 20.00, 25.00,3),
 (4,'Late', 18.00,20.00,22.00,1),
 (5,'Macchiato',23.00, 26.00,35.00,5)
 
+--Stored procedure Sum all
 create procedure SumOfAllTotal
 as
 select Sum(Total)
@@ -58,6 +61,7 @@ from SalesTable
 
 exec SumOfAllTotal
 
+--Stored procedure Select and Join
 create procedure SelectAllfromT2andT3
 as
 select*
@@ -65,6 +69,7 @@ from CoffeePriceTable join SalesTable on CoffeePriceTable.Id_Sale = SalesTable.I
 
 exec SelectAllfromT2andT3
 
+--Stored procedure update
 create procedure UpdatePrice
 as
 update CoffeePriceTable
